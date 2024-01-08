@@ -45,7 +45,7 @@ jobs:
     - name: Setup Dependabot
       uses: dependabot/fetch-metadata@v1.1.0
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
   gitleaks:
     runs-on: ubuntu-latest

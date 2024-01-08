@@ -20,6 +20,11 @@ jobs:
     - name: Run SwiftFormat
       run: swiftformat .
 
+  sonarcloud-scan:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master
       env:

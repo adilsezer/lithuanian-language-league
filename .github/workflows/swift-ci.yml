@@ -24,11 +24,14 @@ jobs:
     - name: Run SwiftFormat
       run: swiftformat .
 
+    - name: List available simulators (for diagnostic purposes)
+      run: xcrun simctl list devices
+
     - name: Build
-      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' build
+      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone' build
 
     - name: Test
-      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' test
+      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone' test
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master

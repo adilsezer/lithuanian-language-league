@@ -58,18 +58,8 @@ class LoginSignupViewModel: ObservableObject {
     }
 
     func googleSignIn() {
-        Task {
-            do {
-                try await Authentication().signInWithGoogle()
-                DispatchQueue.main.async {
-                    self.operationSuccess = true
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self.handleLoginError(error)
-                }
-            }
-        }
+        Authentication().signInWithGoogle()
+        operationSuccess = true
     }
 
     // refactor

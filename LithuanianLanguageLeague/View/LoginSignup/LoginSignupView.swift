@@ -13,7 +13,7 @@ struct LoginSignupView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                .onChange(of: self.isShowingLogin) {
+                .onChange(of: isShowingLogin) {
                     viewModel.resetMessage()
                 }
 
@@ -22,7 +22,6 @@ struct LoginSignupView: View {
                 } else {
                     SignupView(viewModel: viewModel)
                 }
-
                 Spacer()
             }
             .navigationBarTitle("Welcome", displayMode: .inline)

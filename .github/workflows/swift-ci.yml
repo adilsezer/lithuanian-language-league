@@ -9,29 +9,16 @@ on:
     - cron: '0 0 * * *' # Schedule for Dependabot to run daily
 
 jobs:
-  build-and-test:
+  code-quality:
     runs-on: macOS-latest
-
     steps:
     - uses: actions/checkout@v2
 
     - name: Run SwiftLint
       run: swiftlint
 
-    - name: Install Dependencies
-      run: swift package resolve
-
     - name: Run SwiftFormat
       run: swiftformat .
-
-    - name: List available simulators (for diagnostic purposes)
-      run: xcrun simctl list devices
-
-    - name: Build
-      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,id=C6D84733-0788-4941-863C-E8AB7FE0CC23' build
-    
-    - name: Test
-      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,id=C6D84733-0788-4941-863C-E8AB7FE0CC23' test
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master

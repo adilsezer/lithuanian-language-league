@@ -28,10 +28,10 @@ jobs:
       run: xcrun simctl list devices
 
     - name: Build
-      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone' build
+      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 14 Pro' build
 
     - name: Test
-      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone' test
+      run: xcodebuild -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 14 Pro' test
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master

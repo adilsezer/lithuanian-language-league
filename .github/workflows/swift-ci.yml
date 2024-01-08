@@ -15,11 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: swift package resolve
+    - name: Install SwiftLint
+      run: brew install swiftlint
 
     - name: Run SwiftLint
-      uses: norio-nomura/action-swiftlint@3.1.0
+      run: swiftlint
+
+    - name: Install Dependencies
+      run: swift package resolve
 
     - name: Run SwiftFormat
       run: swiftformat .

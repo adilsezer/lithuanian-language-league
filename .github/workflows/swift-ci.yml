@@ -28,10 +28,10 @@ jobs:
       run: swiftformat .
 
     - name: Build
-      run: xcodebuild -scheme YourScheme -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11' build
+      run: xcodebuild -scheme LithuanianLanguageLeague -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11' build
 
     - name: Test
-      run: xcodebuild -scheme YourScheme -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11' test
+      run: xcodebuild -scheme LithuanianLanguageLeague -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11' test
 
     - name: SonarCloud Scan
       uses: SonarSource/sonarcloud-github-action@master

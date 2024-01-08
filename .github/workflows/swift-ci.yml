@@ -1,18 +1,57 @@
-name: SwiftLint
+name: Swift CI
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    paths:
-      - "**/*.swift"
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *' # Schedule for Dependabot to run daily
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: macos-latest
+  build-and-test:
+    runs-on: macOS-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: SwiftLint
-        run: |
-          brew install swiftlint
-          swiftlint
+    - uses: actions/checkout@v2
+
+    - name: Install Dependencies
+      run: swift package resolve
+
+    - name: Run SwiftLint
+      uses: norio-nomura/action-swiftlint@3.1.0
+
+    - name: Run SwiftFormat
+      run: swiftformat .
+
+    - name: Build
+      run: xcodebuild -scheme YourScheme -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11' build
+
+    - name: Test
+      run: xcodebuild -scheme YourScheme -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 11' test
+
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  dependabot:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Dependabot
+      uses: dependabot/fetch-metadata@v1.1.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Gitleaks
+      uses: zricethezav/gitleaks-action@v1

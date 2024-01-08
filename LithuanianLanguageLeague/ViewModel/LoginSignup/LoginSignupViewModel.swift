@@ -72,6 +72,7 @@ class LoginSignupViewModel: ObservableObject {
         }
     }
 
+    // refactor
     func signIn() {
         guard isValidEmail(email), isValidPassword(password) else {
             errorMessage = LoginError.invalidCredentials.localizedDescription

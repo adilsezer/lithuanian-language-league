@@ -8,11 +8,9 @@ class AuthService {
 
     @Published var currentUser: User?
 
-    // Private initialiser to prevent instantiation from outside
-    // This is a common practice in implementing the singleton pattern.
-    // The singleton pattern ensures that only one instance of AuthService exists
-    // throughout the application, providing a global point of access to it.
-    private init() {}
+    private init() {
+        // Private initializer to enforce singleton pattern
+    }
 
     func listenForAuthChanges() {
         Auth.auth().addStateDidChangeListener { [weak self] _, user in

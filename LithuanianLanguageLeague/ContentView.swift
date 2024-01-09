@@ -11,12 +11,16 @@ struct ContentView: View {
             } else {
                 LoginSignupView()
             }
-        }.onAppear {
-            Auth.auth().addStateDidChangeListener { _, user in
-                DispatchQueue.main.async { // Ensure update is on the main thread
-                    self.userLoggedIn = (user != nil)
-                }
-            }
+        }
+        .onAppear {
+            Auth.auth().addStateDidChangeListener(authStateChanged)
+        }
+    }
+
+    // New function to handle the authentication state change
+    private func authStateChanged(auth: Auth, user: User?) {
+        DispatchQueue.main.async { // Ensure update is on the main thread
+            self.userLoggedIn = (user != nil)
         }
     }
 }

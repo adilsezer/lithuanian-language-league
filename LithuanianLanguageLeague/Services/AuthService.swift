@@ -1,10 +1,3 @@
-//
-//  AuthService.swift
-//  LithuanianLanguageLeague
-//
-//  Created by Adil Sezer on 01/01/2024.
-//
-
 import FirebaseAuth
 import FirebaseCore
 import Foundation
@@ -12,8 +5,13 @@ import SwiftUI
 
 class AuthService {
     static let shared = AuthService()
+
     @Published var currentUser: User?
 
+    // Private initialiser to prevent instantiation from outside
+    // This is a common practice in implementing the singleton pattern.
+    // The singleton pattern ensures that only one instance of AuthService exists
+    // throughout the application, providing a global point of access to it.
     private init() {}
 
     func listenForAuthChanges() {

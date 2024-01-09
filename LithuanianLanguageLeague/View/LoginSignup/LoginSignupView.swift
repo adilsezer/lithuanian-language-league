@@ -7,16 +7,7 @@ struct LoginSignupView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Picker("Options", selection: $isShowingLogin) {
-                    Text("Login").tag(true)
-                    Text("Signup").tag(false)
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                .onChange(of: isShowingLogin) {
-                    viewModel.resetMessage()
-                }
-
+                optionsPicker
                 if isShowingLogin {
                     LoginView(viewModel: viewModel)
                 } else {
@@ -28,6 +19,16 @@ struct LoginSignupView: View {
             .padding()
         }
     }
-}
 
-// Assuming LoginSignupViewModel and other Views are defined elsewhere
+    private var optionsPicker: some View {
+        Picker("Options", selection: $isShowingLogin) {
+            Text("Login").tag(true)
+            Text("Signup").tag(false)
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding()
+        .onChange(of: isShowingLogin) {
+            viewModel.resetMessage()
+        }
+    }
+}

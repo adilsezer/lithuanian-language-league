@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct LoginSignupView: View {
-    @StateObject var viewModel = LoginSignupViewModel()
+    @StateObject var loginViewModel = LoginViewModel()
+    @StateObject var signUpViewModel = SignUpViewModel()
     @State private var isShowingLogin = true // Toggle between Login and Signup
 
     var body: some View {
@@ -9,9 +10,9 @@ struct LoginSignupView: View {
             VStack {
                 optionsPicker
                 if isShowingLogin {
-                    LoginView(viewModel: viewModel)
+                    LoginView(viewModel: loginViewModel)
                 } else {
-                    SignupView(viewModel: viewModel)
+                    SignupView(viewModel: signUpViewModel)
                 }
                 Spacer()
             }
@@ -27,8 +28,5 @@ struct LoginSignupView: View {
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding()
-        .onChange(of: isShowingLogin) {
-            viewModel.resetMessage()
-        }
     }
 }

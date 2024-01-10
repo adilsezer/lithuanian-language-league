@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var viewModel: LoginSignupViewModel
+    @ObservedObject var viewModel: LoginViewModel
 
     var body: some View {
         VStack {
@@ -24,6 +24,9 @@ struct LoginView: View {
             Text("Or").padding(10)
             AuthButtton(title: "Sign in with Google", action: viewModel.googleSignIn, iconName: "GoogleLogo")
         }
+        .onAppear {
+            viewModel.resetMessage()
+        }
     }
 }
 
@@ -31,11 +34,11 @@ struct LoginView: View {
 #if DEBUG
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: LoginSignupViewModel())
+        LoginView(viewModel: LoginViewModel())
     }
 }
 #endif
 
 #Preview {
-    LoginView(viewModel: LoginSignupViewModel())
+    LoginView(viewModel: LoginViewModel())
 }

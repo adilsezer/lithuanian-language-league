@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B059C172B44A7C3000D1CA1 /* LoginError.swift */; };
 		9B206B2E2B464170007F7943 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206B2D2B464170007F7943 /* Home.swift */; };
-		9B206B302B464224007F7943 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206B2F2B464224007F7943 /* Authentication.swift */; };
-		9B4898F42B42650C00420A88 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898E12B42650C00420A88 /* User.swift */; };
+		9B4898F42B42650C00420A88 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898E12B42650C00420A88 /* UserData.swift */; };
 		9B4898F52B42650C00420A88 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898E32B42650C00420A88 /* NetworkManager.swift */; };
 		9B4898F62B42650C00420A88 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898E52B42650C00420A88 /* CustomModifiers.swift */; };
-		9B4898F72B42650C00420A88 /* LoginSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898E82B42650C00420A88 /* LoginSignupViewModel.swift */; };
+		9B4898F72B42650C00420A88 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898E82B42650C00420A88 /* SignupViewModel.swift */; };
 		9B4898F82B42650C00420A88 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898EB2B42650C00420A88 /* LoginView.swift */; };
 		9B4898F92B42650C00420A88 /* LoginSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898EC2B42650C00420A88 /* LoginSignupView.swift */; };
 		9B4898FA2B42650C00420A88 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898ED2B42650C00420A88 /* SignupView.swift */; };
@@ -22,7 +21,9 @@
 		9B4898FD2B42650C00420A88 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4898F22B42650C00420A88 /* Extensions.swift */; };
 		9B4898FE2B42650C00420A88 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B4898F32B42650C00420A88 /* GoogleService-Info.plist */; };
 		9B4899072B42696F00420A88 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4899062B42696F00420A88 /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		9B83930B2B42E7DE00DCC51F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83930A2B42E7DE00DCC51F /* AuthService.swift */; };
+		9B5222BC2B4DF6A600F50220 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5222BB2B4DF6A600F50220 /* InputValidator.swift */; };
+		9B5222BF2B4E1FE500F50220 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */; };
+		9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */; };
 		9B83930D2B43185E00DCC51F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9B83930C2B43185E00DCC51F /* FirebaseAuth */; };
 		9BAC504A2B434A0C008A04D4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC50492B434A0C008A04D4 /* MessageView.swift */; };
 		9BAC504D2B435C16008A04D4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504C2B435C16008A04D4 /* GoogleSignIn */; };
@@ -57,11 +58,10 @@
 /* Begin PBXFileReference section */
 		9B059C172B44A7C3000D1CA1 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		9B206B2D2B464170007F7943 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		9B206B2F2B464224007F7943 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		9B4898E12B42650C00420A88 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B4898E12B42650C00420A88 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		9B4898E32B42650C00420A88 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9B4898E52B42650C00420A88 /* CustomModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
-		9B4898E82B42650C00420A88 /* LoginSignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupViewModel.swift; sourceTree = "<group>"; };
+		9B4898E82B42650C00420A88 /* SignupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		9B4898EB2B42650C00420A88 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9B4898EC2B42650C00420A88 /* LoginSignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupView.swift; sourceTree = "<group>"; };
 		9B4898ED2B42650C00420A88 /* SignupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
@@ -69,7 +69,9 @@
 		9B4898F02B42650C00420A88 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		9B4898F22B42650C00420A88 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9B4898F32B42650C00420A88 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9B83930A2B42E7DE00DCC51F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		9B5222BB2B4DF6A600F50220 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		9BAC50492B434A0C008A04D4 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		9BAC50502B435FEB008A04D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9BAC505A2B438122008A04D4 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		9B4898E02B42650C00420A88 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B4898E12B42650C00420A88 /* User.swift */,
+				9B4898E12B42650C00420A88 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -146,18 +148,19 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
-		9B4898E62B42650C00420A88 /* ViewModel */ = {
+		9B4898E62B42650C00420A88 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				9B4898E72B42650C00420A88 /* LoginSignup */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9B4898E72B42650C00420A88 /* LoginSignup */ = {
 			isa = PBXGroup;
 			children = (
-				9B4898E82B42650C00420A88 /* LoginSignupViewModel.swift */,
+				9B4898E82B42650C00420A88 /* SignupViewModel.swift */,
+				9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */,
 			);
 			path = LoginSignup;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			children = (
 				9B4898F22B42650C00420A88 /* Extensions.swift */,
 				9B059C172B44A7C3000D1CA1 /* LoginError.swift */,
+				9B5222BB2B4DF6A600F50220 /* InputValidator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -212,8 +216,7 @@
 		9B8393092B42E7B000DCC51F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9B83930A2B42E7DE00DCC51F /* AuthService.swift */,
-				9B206B2F2B464224007F7943 /* Authentication.swift */,
+				9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -249,7 +252,7 @@
 				9B4898E02B42650C00420A88 /* Model */,
 				9B4898F12B42650C00420A88 /* Utilities */,
 				9B4898E92B42650C00420A88 /* View */,
-				9B4898E62B42650C00420A88 /* ViewModel */,
+				9B4898E62B42650C00420A88 /* ViewModels */,
 				9B4898E42B42650C00420A88 /* ViewModifiers */,
 				9BE268BF2B40FDE200DD41D5 /* LithuanianLanguageLeagueApp.swift */,
 				9BE268C12B40FDE200DD41D5 /* ContentView.swift */,
@@ -450,12 +453,12 @@
 			files = (
 				9B4898FA2B42650C00420A88 /* SignupView.swift in Sources */,
 				9B4898FC2B42650C00420A88 /* CustomTextField.swift in Sources */,
-				9B4898F72B42650C00420A88 /* LoginSignupViewModel.swift in Sources */,
+				9B4898F72B42650C00420A88 /* SignupViewModel.swift in Sources */,
 				9B4898F82B42650C00420A88 /* LoginView.swift in Sources */,
 				9B4898F92B42650C00420A88 /* LoginSignupView.swift in Sources */,
 				9B4898FB2B42650C00420A88 /* CustomButton.swift in Sources */,
 				9B206B2E2B464170007F7943 /* Home.swift in Sources */,
-				9B83930B2B42E7DE00DCC51F /* AuthService.swift in Sources */,
+				9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */,
 				9B4898F52B42650C00420A88 /* NetworkManager.swift in Sources */,
 				9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */,
 				9BAC504A2B434A0C008A04D4 /* MessageView.swift in Sources */,
@@ -463,9 +466,10 @@
 				9B4898F62B42650C00420A88 /* CustomModifiers.swift in Sources */,
 				9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */,
 				9BE268C22B40FDE200DD41D5 /* ContentView.swift in Sources */,
+				9B5222BC2B4DF6A600F50220 /* InputValidator.swift in Sources */,
 				9BE268C02B40FDE200DD41D5 /* LithuanianLanguageLeagueApp.swift in Sources */,
-				9B4898F42B42650C00420A88 /* User.swift in Sources */,
-				9B206B302B464224007F7943 /* Authentication.swift in Sources */,
+				9B5222BF2B4E1FE500F50220 /* LoginViewModel.swift in Sources */,
+				9B4898F42B42650C00420A88 /* UserData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

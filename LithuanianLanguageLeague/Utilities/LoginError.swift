@@ -1,17 +1,12 @@
-//
-//  LoginError.swift
-//  LithuanianLanguageLeague
-//
-//  Created by Adil Sezer on 02/01/2024.
-//
-
 import Foundation
+
 enum LoginError: Error, LocalizedError {
     case invalidCredentials
     case networkError
     case unknownError
     case emptyEmail
     case weakPassword
+    case generalError(Error)
 
     var errorDescription: String? {
         switch self {
@@ -25,6 +20,20 @@ enum LoginError: Error, LocalizedError {
             return "Email field is empty. Please enter your email."
         case .weakPassword:
             return "Password is too weak. Please use a stronger password."
+        case .generalError(let error):
+            // Here you can handle general errors
+            // For example, if you want to handle NSError with a specific domain
+            if let nsError = error as NSError?, nsError.domain == NSURLErrorDomain {
+                return "Network error. Please check your internet connection."
+            } else {
+                return error.localizedDescription
+            }
         }
+    }
+
+    // Method to create a LoginError from any Error
+    static func parseError(_ error: Error) -> LoginError {
+        // Here, you can add more specific error handling if needed
+        return .generalError(error)
     }
 }

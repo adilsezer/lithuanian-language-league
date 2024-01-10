@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SignupView: View {
-    @ObservedObject var viewModel: LoginSignupViewModel
+    @ObservedObject var viewModel: SignUpViewModel
 
     var body: some View {
         VStack {
@@ -16,5 +16,5 @@ struct SignupView: View {
 }
 
 #Preview {
-    SignupView(viewModel: LoginSignupViewModel())
+    SignupView(viewModel: SignUpViewModel())
 }

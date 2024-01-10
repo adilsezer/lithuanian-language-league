@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var userLoggedIn = (Auth.auth().currentUser != nil)
+    @EnvironmentObject var userData: UserData
 
     var body: some View {
         VStack {

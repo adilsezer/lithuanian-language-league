@@ -1,10 +1,8 @@
 name: Swift CI
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -14,14 +12,14 @@ jobs:
   code-quality:
     runs-on: macOS-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Run SwiftLint
-      run: swiftlint
+      - name: Run SwiftLint
+        run: swiftlint
 
-    - name: Run SwiftFormat
-      run: swiftformat .
-      
+      - name: Run SwiftFormat
+        run: swiftformat .
+
   gitleaks:
     runs-on: ubuntu-latest
     steps:

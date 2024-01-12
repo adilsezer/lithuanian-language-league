@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run SwiftFormat
-        run: swiftformat .
+        run: swiftformat . --swiftversion 5.9
 
       - name: Check for uncommitted changes
         id: git-check

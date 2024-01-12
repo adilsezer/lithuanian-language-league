@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, open url: URL, options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         // Handle Google Sign-In URL
-        return GIDSignIn.sharedInstance.handle(url)
+        GIDSignIn.sharedInstance.handle(url)
     }
 }
 

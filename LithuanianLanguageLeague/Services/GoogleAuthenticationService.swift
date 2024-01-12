@@ -19,7 +19,7 @@ class GoogleAuthenticationService {
 
     private func restorePreviousSignIn() {
         GIDSignIn.sharedInstance.restorePreviousSignIn { [weak self] user, error in
-            if let error = error {
+            if let error {
                 self?.signInCompletion?(.failure(error))
             } else {
                 self?.authenticateUser(for: user)
@@ -36,7 +36,7 @@ class GoogleAuthenticationService {
         GIDSignIn.sharedInstance.configuration = configuration
 
         GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [weak self] signInResult, error in
-            if let error = error {
+            if let error {
                 self?.signInCompletion?(.failure(error))
             } else {
                 self?.authenticateUser(for: signInResult?.user)
@@ -45,11 +45,11 @@ class GoogleAuthenticationService {
     }
 
     private func authenticateUser(for user: GIDGoogleUser?) {
-        guard let user = user, let idToken = user.idToken?.tokenString else { return }
+        guard let user, let idToken = user.idToken?.tokenString else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
 
         Auth.auth().signIn(with: credential) { [weak self] authResult, error in
-            if let error = error {
+            if let error {
                 self?.signInCompletion?(.failure(error))
             } else if let user = authResult?.user {
                 self?.signInCompletion?(.success(user))

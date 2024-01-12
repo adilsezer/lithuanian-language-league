@@ -19,7 +19,7 @@ class LoginViewModel: ObservableObject {
             return
         }
 
-        authService.signIn(email: email, password: password) { [weak self] result in
+        authService.signInWithEmail(email: email, password: password) { [weak self] result in
             switch result {
             case .success:
                 self?.isAuthenticated = true

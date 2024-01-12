@@ -7,17 +7,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions:
-                     [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication,
+                     didFinishLaunchingWithOptions _:
+                     [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
         // Configure Firebase
         FirebaseApp.configure()
         return true
     }
 
-    func application(_ app: UIApplication,
+    func application(_: UIApplication,
                      open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+                     options _: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool
+    {
         // Handle Google Sign-In URL
         return GIDSignIn.sharedInstance.handle(url)
     }

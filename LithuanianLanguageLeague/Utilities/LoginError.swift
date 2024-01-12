@@ -20,7 +20,7 @@ enum LoginError: Error, LocalizedError {
             return "Email field is empty. Please enter your email."
         case .weakPassword:
             return "Password is too weak. Please use a stronger password."
-        case .generalError(let error):
+        case let .generalError(error):
             // Here you can handle general errors
             // For example, if you want to handle NSError with a specific domain
             if let nsError = error as NSError?, nsError.domain == NSURLErrorDomain {

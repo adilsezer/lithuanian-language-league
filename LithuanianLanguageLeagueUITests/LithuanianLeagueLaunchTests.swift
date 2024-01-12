@@ -1,5 +1,5 @@
 //
-//  LithuanianLanguageLeagueUITestsLaunchTests.swift
+//  LithuanianLeagueLaunchTests.swift
 //  LithuanianLanguageLeagueUITests
 //
 //  Created by Adil Sezer on 31/12/2023.
@@ -8,7 +8,6 @@
 import XCTest
 
 final class LithuanianLeagueLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

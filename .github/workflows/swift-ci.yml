@@ -27,6 +27,26 @@ jobs:
       - name: Run SwiftFormat
         run: swiftformat .
 
+      - name: Check for uncommitted changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "::set-output name=changes::true"
+
+      - name: List reformatted files and changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          echo "Files reformatted by SwiftFormat:"
+          git diff --name-only
+          echo "Detailed formatting changes:"
+          git diff
+          echo "::set-output name=details::true"
+
+      - name: Fail if formatting changes are detected
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          echo "Formatting issues detected. Please review the changes above and fix them locally with SwiftFormat."
+          exit 1
+
   gitleaks:
     runs-on: ubuntu-latest
     steps:

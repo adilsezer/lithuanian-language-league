@@ -7,16 +7,16 @@ enum InputValidator {
         return emailPred.evaluate(with: email)
     }
 
-    func greet() {
-        print("Hello, World!") // Intentionally incorrect indentation
-        let sum = 1+2
-    }
+func exampleFunction() {
+let x = 1 // Incorrectly indented line
+}
+
 
     static func isValidPassword(_ password: String) -> Bool {
         // Define your password criteria here.
         // For example, a minimum length of 6 characters.
-        let numbers = [1, 2, 3]
-        let squares = numbers.map { $0 * $0 } // Trailing Closure Violation
+        let longString = "This is a very long string that will be used to test the line length rule in SwiftLint, and it should exceed the default maximum length."
+
 
         return password.count >= 6
     }

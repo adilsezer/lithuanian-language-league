@@ -24,9 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install SwiftFormat
-        run: sudo apt-get install swiftformat
-
       - name: Run SwiftFormat
         run: swiftformat .
 

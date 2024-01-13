@@ -11,15 +11,15 @@ permissions:
 jobs:
   build:
     runs-on: macOS-latest
-
+    strategy:
+      matrix:
+        platform:
+          - iOS
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-
-      - name: Build and Test
-        uses: mxcl/xcodebuild@v1
+      - uses: mxcl/xcodebuild@v1
         with:
           scheme: LithuanianLanguageLeague
+          platform: ${{ matrix.platform }}
 
   swiftlint:
     runs-on: macOS-latest

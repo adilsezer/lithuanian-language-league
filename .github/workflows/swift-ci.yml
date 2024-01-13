@@ -9,22 +9,15 @@ permissions:
   pull-requests: read
 
 jobs:
-  test:
+  build:
     runs-on: macOS-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Verify Project Path
-        run: ls -l $GITHUB_WORKSPACE # List files in the workspace directory for debugging purposes
-
-      - name: Run XcodeBuild
-        uses: sersoft-gmbh/xcodebuild-action@v3
-        with:
-          project: LithuanianLanguageLeague.xcodeproj
-          scheme: LithuanianLanguageLeague
-          destination: platform=macOS
-          action: test
+      - name: Build and Test
+        uses: mxcl/xcodebuild@v1
 
   swiftlint:
     runs-on: macOS-latest

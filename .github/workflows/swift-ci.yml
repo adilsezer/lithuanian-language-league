@@ -10,42 +10,30 @@ permissions:
 
 jobs:
   swiftlint:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: GitHub Action for SwiftLint with --strict
-        uses: norio-nomura/action-swiftlint@3.2.1
-        with:
-          args: --strict
+      - name: Run SwiftLint
+        run: |
+          if ! swiftlint; then
+            echo "SwiftLint found style violations. Please address them before merging:"
+            swiftlint
+            exit 1
+          fi
 
   swiftformat:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
 
-      - name: Run SwiftFormat
-        run: swiftformat . --swiftversion 5.9
-
-      - name: Check for uncommitted changes
-        id: git-check
+      - name: Run SwiftFormat Check
         run: |
-          git diff --exit-code || echo "::set-output name=changes::true"
-
-      - name: List reformatted files and changes
-        if: steps.git-check.outputs.changes == 'true'
-        run: |
-          echo "Files reformatted by SwiftFormat:"
-          git diff --name-only
-          echo "Detailed formatting changes:"
-          git diff
-          echo "::set-output name=details::true"
-
-      - name: Fail if formatting changes are detected
-        if: steps.git-check.outputs.changes == 'true'
-        run: |
-          echo "Formatting issues detected. Please review the changes above and fix them locally with SwiftFormat."
-          exit 1
+          if ! swiftformat --lint .; then
+            echo "SwiftFormat found formatting issues. Please fix them before merging:"
+            swiftformat --lint .
+            exit 1
+          fi
 
   gitleaks:
     runs-on: ubuntu-latest

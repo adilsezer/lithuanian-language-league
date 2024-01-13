@@ -16,9 +16,9 @@ jobs:
 
       - name: Run SwiftLint
         run: |
-          if ! swiftlint; then
-            echo "SwiftLint found style violations. Please address them before merging:"
-            swiftlint
+          swiftlint
+          if [ $? -ne 0 ]; then
+            echo "SwiftLint found style violations or errors."
             exit 1
           fi
 

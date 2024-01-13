@@ -12,7 +12,14 @@ jobs:
   test:
     runs-on: macOS-latest
     steps:
-      - uses: sersoft-gmbh/xcodebuild-action@v3
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Verify Project Path
+        run: ls -l $GITHUB_WORKSPACE # List files in the workspace directory for debugging purposes
+
+      - name: Run XcodeBuild
+        uses: sersoft-gmbh/xcodebuild-action@v3
         with:
           project: LithuanianLanguageLeague.xcodeproj
           scheme: LithuanianLanguageLeague

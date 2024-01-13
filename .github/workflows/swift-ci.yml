@@ -18,6 +18,8 @@ jobs:
 
       - name: Build and Test
         uses: mxcl/xcodebuild@v1
+        with:
+          scheme: LithuanianLanguageLeague
 
   swiftlint:
     runs-on: macOS-latest

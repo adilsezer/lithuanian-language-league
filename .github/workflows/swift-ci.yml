@@ -30,9 +30,9 @@ jobs:
 
       - name: Run SwiftFormat Check
         run: |
-          if ! swiftformat --lint .; then
+          if ! swiftformat --lint --swiftversion 5.9 .; then
             echo "SwiftFormat found formatting issues. Please fix them before merging:"
-            swiftformat --lint .
+            swiftformat --lint --swiftversion 5.9 .
             exit 1
           fi
 

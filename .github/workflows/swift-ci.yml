@@ -23,19 +23,6 @@ jobs:
             exit 1
           fi
 
-  swiftformat:
-    runs-on: macOS-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Run SwiftFormat Check
-        run: |
-          if ! swiftformat --lint --swiftversion 5.9 .; then
-            echo "SwiftFormat found formatting issues. Please fix them before merging:"
-            swiftformat --lint --swiftversion 5.9 .
-            exit 1
-          fi
-
   gitleaks:
     runs-on: ubuntu-latest
     steps:

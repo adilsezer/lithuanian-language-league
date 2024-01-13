@@ -10,17 +10,14 @@ permissions:
 
 jobs:
   test:
-    runs-on: macos-11
+    runs-on: macOS-latest
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Run Tests
-        run: xcodebuild -scheme LithuanianLanguageLeague -resultBundlePath TestResults test
-
-      - uses: kishikawakatsumi/xcresulttool@v1
+      - uses: sersoft-gmbh/xcodebuild-action@v3
         with:
-          path: TestResults.xcresult
-        if: success() || failure()
+          project: LithuanianLanguageLeague.xcodeproj
+          scheme: LithuanianLanguageLeague
+          destination: platform=macOS
+          action: test
 
   swiftlint:
     runs-on: macOS-latest

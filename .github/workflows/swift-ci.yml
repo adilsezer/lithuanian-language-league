@@ -9,17 +9,32 @@ permissions:
   pull-requests: read
 
 jobs:
-  build:
-    runs-on: macOS-latest
+  build-and-test:
+    runs-on: macos-latest
     strategy:
       matrix:
-        platform:
-          - iOS
+        destination: ["platform=iOS Simulator,OS=latest,name=iPhone 13"]
+
     steps:
-      - uses: mxcl/xcodebuild@v1
+      - uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
         with:
-          scheme: LithuanianLanguageLeague
-          platform: ${{ matrix.platform }}
+          xcode-version: "latest"
+
+      - name: Install Dependencies
+        run: |
+          xcode-select -p
+          gem install bundler
+          bundle install
+          pod install
+
+      - name: Build
+        run: xcodebuild build -workspace LithuanianLanguageLeague.xcworkspace -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
+
+      - name: Run Tests
+        run: xcodebuild test -workspace LithuanianLanguageLeague.xcworkspace -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
 
   swiftlint:
     runs-on: macOS-latest

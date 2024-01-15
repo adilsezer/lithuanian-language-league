@@ -24,10 +24,10 @@ jobs:
           xcode-version: "latest"
 
       - name: Build
-        run: xcodebuild build -workspace LithuanianLanguageLeague.xcworkspace -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
+        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
 
       - name: Run Tests
-        run: xcodebuild test -workspace LithuanianLanguageLeague.xcworkspace -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
 
   swiftlint:
     runs-on: macOS-latest

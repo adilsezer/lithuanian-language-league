@@ -19,9 +19,9 @@ struct ContentView: View {
     }
 
     // New function to handle the authentication state change
-    private func authStateChanged(auth: Auth, user: User?) {
+    private func authStateChanged(auth _: Auth, user: User?) {
         DispatchQueue.main.async { // Ensure update is on the main thread
-            self.userLoggedIn = (user != nil)
+            userLoggedIn = (user != nil)
         }
     }
 }

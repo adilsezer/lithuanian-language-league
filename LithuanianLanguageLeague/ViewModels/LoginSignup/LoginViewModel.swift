@@ -24,7 +24,7 @@ class LoginViewModel: ObservableObject {
             case .success:
                 self?.isAuthenticated = true
                 self?.errorMessage = nil
-            case .failure(let error):
+            case let .failure(error):
                 self?.isAuthenticated = false
                 self?.errorMessage = error.localizedDescription
             }
@@ -45,7 +45,7 @@ class LoginViewModel: ObservableObject {
             switch result {
             case .success:
                 self?.errorMessage = "Password reset link sent."
-            case .failure(let error):
+            case let .failure(error):
                 self?.errorMessage = error.localizedDescription
             }
         }

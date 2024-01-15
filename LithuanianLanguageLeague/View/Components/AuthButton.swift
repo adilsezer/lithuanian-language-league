@@ -8,7 +8,7 @@ struct AuthButtton: View {
     var body: some View {
         Button(action: action) {
             HStack {
-                if let iconName = iconName {
+                if let iconName {
                     Image(iconName)
                         .resizable()
                         .scaledToFit()

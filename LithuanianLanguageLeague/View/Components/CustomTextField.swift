@@ -15,7 +15,7 @@ struct CustomTextField: View {
 
     var body: some View {
         HStack {
-            if let iconName = iconName {
+            if let iconName {
                 Image(systemName: iconName)
                     .foregroundColor(.gray)
                     .frame(width: 20, alignment: .center)

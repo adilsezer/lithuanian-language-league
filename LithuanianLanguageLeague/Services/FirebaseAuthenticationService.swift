@@ -29,7 +29,7 @@ class FirebaseAuthenticationService: ObservableObject {
 
     func signUp(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            if let error = error {
+            if let error {
                 completion(.failure(error))
             } else if let user = authResult?.user {
                 completion(.success(user))
@@ -39,7 +39,7 @@ class FirebaseAuthenticationService: ObservableObject {
 
     func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if let error = error {
+            if let error {
                 completion(.failure(error))
             } else if let user = authResult?.user {
                 completion(.success(user))
@@ -49,7 +49,7 @@ class FirebaseAuthenticationService: ObservableObject {
 
     func forgotPassword(email: String, completion: @escaping (Result<Void, Error>) -> Void) {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if let error = error {
+            if let error {
                 completion(.failure(error))
             } else {
                 completion(.success(()))

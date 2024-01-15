@@ -44,10 +44,10 @@ class AuthenticationService: ObservableObject {
     func signInWithGoogle() {
         googleAuthService.signIn { [weak self] result in
             switch result {
-            case .success(let user):
+            case let .success(user):
                 self?.currentUser = user
                 self?.signInState = .signedIn
-            case .failure(let error):
+            case let .failure(error):
                 print("Error signing in with Google: \(error.localizedDescription)")
                 self?.signInState = .signedOut
             }

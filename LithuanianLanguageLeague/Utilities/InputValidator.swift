@@ -10,6 +10,6 @@ enum InputValidator {
     static func isValidPassword(_ password: String) -> Bool {
         // Define your password criteria here.
         // For example, a minimum length of 6 characters.
-        return password.count >= 6
+        password.count >= 6
     }
 }

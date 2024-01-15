@@ -9,14 +9,14 @@ struct MessageView: View {
 
         var color: Color {
             switch self {
-            case .success: return .green
-            case .error: return .red
+            case .success: .green
+            case .error: .red
             }
         }
     }
 
     var body: some View {
-        if let message = message, !message.isEmpty {
+        if let message, !message.isEmpty {
             Text(message)
                 .foregroundColor(messageType.color)
                 .background(Color.clear)

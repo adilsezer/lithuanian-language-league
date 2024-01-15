@@ -32,11 +32,11 @@ struct LoginView: View {
 
 // Preview
 #if DEBUG
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView(viewModel: LoginViewModel())
+    struct LoginView_Previews: PreviewProvider {
+        static var previews: some View {
+            LoginView(viewModel: LoginViewModel())
+        }
     }
-}
 #endif
 
 #Preview {

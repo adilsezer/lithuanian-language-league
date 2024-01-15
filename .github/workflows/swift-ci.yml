@@ -11,38 +11,20 @@ permissions:
 jobs:
   build-and-test:
     name: Build and Test
-    runs-on: macos-latest
+    runs-on: macos-latest # This will use the latest macOS runner
 
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Set up Xcode
-        run: echo 'DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer' >> $GITHUB_ENV
-
-      - name: Resolve Swift Package Manager dependencies
-        run: xcodebuild -resolvePackageDependencies
-
-      - name: Set Default Scheme
-        run: |
-          scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-          echo $default | cat >default
-          echo Using default scheme: $default
+      - name: Resolve Package Dependencies
+        run: xcodebuild -resolvePackageDependencies -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague
 
       - name: Build and Analyze
-        env:
-          scheme: ${{ 'default' }}
-        run: |
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild clean build analyze -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' | xcpretty && exit ${PIPESTATUS[0]}
+        run: xcodebuild clean build analyze -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' -allowProvisioningUpdates
 
       - name: Run Unit and UI Tests
-        env:
-          scheme: ${{ 'default' }}
-        run: |
-          if [ $scheme = default ]; then scheme=$(cat default); fi
-          xcodebuild test -scheme "$scheme" -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' | xcpretty
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' -allowProvisioningUpdates
 
   swiftlint:
     runs-on: macOS-latest

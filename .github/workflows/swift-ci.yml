@@ -20,6 +20,12 @@ jobs:
       - name: Resolve Package Dependencies
         run: xcodebuild -resolvePackageDependencies -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague
 
+      - name: List Available Simulators
+        run: xcrun simctl list devices
+
+      - name: Print Xcode version
+        run: xcodebuild -version
+
       - name: Build and Analyze
         run: xcodebuild clean build analyze -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' -allowProvisioningUpdates
 

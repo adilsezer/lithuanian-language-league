@@ -11,7 +11,6 @@ permissions:
 jobs:
   build-and-test:
     runs-on: macos-latest
-
     steps:
       - uses: actions/checkout@v2
 
@@ -21,21 +20,17 @@ jobs:
         with:
           xcode-version: "latest"
 
-      # Optionally, list available simulators
-      - name: List available simulators
-        run: xcrun simctl list devices available
-
-      # Pre-start simulator (modify device and OS version as needed)
-      - name: Pre-start simulator
-        run: xcrun instruments -w "iPhone 11 Pro (13.3) [" || true
+      # Start a specific simulator
+      - name: Start Simulator
+        run: xcrun simctl boot "53E97411-2B39-4F4E-8DE3-338DEAAE3B87"
 
       # Build
       - name: Build
-        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=latest,name=Any iOS Simulator Device" -sdk iphonesimulator
+        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,id=53E97411-2B39-4F4E-8DE3-338DEAAE3B87" -sdk iphonesimulator
 
       # Run Tests
       - name: Run Tests
-        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=latest,name=Any iOS Simulator Device" -sdk iphonesimulator
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,id=53E97411-2B39-4F4E-8DE3-338DEAAE3B87" -sdk iphonesimulator
 
   swiftlint:
     runs-on: macOS-latest

@@ -15,16 +15,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Set up Xcode
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: "latest"
 
-      - name: Build
-        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 11" -sdk iphonesimulator16.2
+      # Optionally, list available simulators (for debugging)
+      - name: List available simulators
+        run: xcrun simctl list devices available
 
+      # Install specific iOS Simulator version if needed (uncomment if required)
+      # - name: Install iOS 16.2 Simulator
+      #   run: xcversion simulators --install='iOS 16.2'
+
+      # Build
+      - name: Build
+        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=latest,name=Any iOS Simulator Device" -sdk iphonesimulator
+
+      # Run Tests
       - name: Run Tests
-        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 11" -sdk iphonesimulator16.2
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=latest,name=Any iOS Simulator Device" -sdk iphonesimulator
 
   swiftlint:
     runs-on: macOS-latest

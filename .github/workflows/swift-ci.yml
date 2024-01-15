@@ -21,13 +21,13 @@ jobs:
         with:
           xcode-version: "latest"
 
-      # Optionally, list available simulators (for debugging)
+      # Optionally, list available simulators
       - name: List available simulators
         run: xcrun simctl list devices available
 
-      # Install specific iOS Simulator version if needed (uncomment if required)
-      # - name: Install iOS 16.2 Simulator
-      #   run: xcversion simulators --install='iOS 16.2'
+      # Pre-start simulator (modify device and OS version as needed)
+      - name: Pre-start simulator
+        run: xcrun instruments -w "iPhone 11 Pro (13.3) [" || true
 
       # Build
       - name: Build

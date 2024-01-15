@@ -27,10 +27,10 @@ jobs:
         run: xcodebuild -version
 
       - name: Build and Analyze
-        run: xcodebuild clean build analyze -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' -allowProvisioningUpdates
+        run: xcodebuild clean build analyze -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1' -allowProvisioningUpdates
 
       - name: Run Unit and UI Tests
-        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 13 Pro,OS=16.2' -allowProvisioningUpdates
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination 'platform=iOS Simulator,name=iPhone 15 Pro,OS=17.0.1' -allowProvisioningUpdates
 
   swiftlint:
     runs-on: macOS-latest

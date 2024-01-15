@@ -11,9 +11,6 @@ permissions:
 jobs:
   build-and-test:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        destination: ["platform=iOS Simulator,OS=latest,name=iPhone 13"]
 
     steps:
       - uses: actions/checkout@v2
@@ -23,11 +20,16 @@ jobs:
         with:
           xcode-version: "latest"
 
+      - name: List available simulators
+        run: |
+          xcodebuild -showsdks
+          xcrun simctl list devices
+
       - name: Build
-        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
+        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 13" -sdk iphonesimulator
 
       - name: Run Tests
-        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 13" -sdk iphonesimulator
 
   swiftlint:
     runs-on: macOS-latest

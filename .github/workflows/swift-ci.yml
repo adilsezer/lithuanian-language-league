@@ -23,13 +23,6 @@ jobs:
         with:
           xcode-version: "latest"
 
-      - name: Install Dependencies
-        run: |
-          xcode-select -p
-          gem install bundler
-          bundle install
-          pod install
-
       - name: Build
         run: xcodebuild build -workspace LithuanianLanguageLeague.xcworkspace -scheme LithuanianLanguageLeague -destination "${{ matrix.destination }}" -sdk iphonesimulator
 

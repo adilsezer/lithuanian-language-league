@@ -20,16 +20,11 @@ jobs:
         with:
           xcode-version: "latest"
 
-      - name: List available simulators
-        run: |
-          xcodebuild -showsdks
-          xcrun simctl list devices
-
       - name: Build
-        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 13" -sdk iphonesimulator
+        run: xcodebuild build -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 13 Pro" -sdk iphonesimulator16.2
 
       - name: Run Tests
-        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 13" -sdk iphonesimulator
+        run: xcodebuild test -project LithuanianLanguageLeague.xcodeproj -scheme LithuanianLanguageLeague -destination "platform=iOS Simulator,OS=16.2,name=iPhone 13 Pro" -sdk iphonesimulator16.2
 
   swiftlint:
     runs-on: macOS-latest

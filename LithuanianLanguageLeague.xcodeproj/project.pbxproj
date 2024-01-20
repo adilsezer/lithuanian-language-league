@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B059C172B44A7C3000D1CA1 /* LoginError.swift */; };
+		9B10B0AB2B5723EB008705C3 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */; };
 		9B206B2E2B464170007F7943 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206B2D2B464170007F7943 /* Home.swift */; };
 		9B3A3A172B4F6833007F7989 /* GoogleAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A3A162B4F6833007F7989 /* GoogleAuthenticationService.swift */; };
 		9B3A3A192B4F6A40007F7989 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A3A182B4F6A40007F7989 /* FirebaseAuthenticationService.swift */; };
@@ -25,6 +26,8 @@
 		9B4899072B42696F00420A88 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4899062B42696F00420A88 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		9B5222BC2B4DF6A600F50220 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5222BB2B4DF6A600F50220 /* InputValidator.swift */; };
 		9B5222BF2B4E1FE500F50220 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */; };
+		9B568D8C2B5746FC002B3AAE /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9B568D8B2B5746FC002B3AAE /* FirebaseCrashlytics */; };
+		9B568D912B574F40002B3AAE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9B568D902B574F40002B3AAE /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Required, ); }; };
 		9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */; };
 		9B83930D2B43185E00DCC51F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9B83930C2B43185E00DCC51F /* FirebaseAuth */; };
 		9BAC504A2B434A0C008A04D4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC50492B434A0C008A04D4 /* MessageView.swift */; };
@@ -59,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		9B059C172B44A7C3000D1CA1 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		9B206B2D2B464170007F7943 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		9B3A3A162B4F6833007F7989 /* GoogleAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationService.swift; sourceTree = "<group>"; };
 		9B3A3A182B4F6A40007F7989 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 			files = (
 				9B4899072B42696F00420A88 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				9B83930D2B43185E00DCC51F /* FirebaseAuth in Frameworks */,
+				9B568D912B574F40002B3AAE /* FirebaseAnalytics in Frameworks */,
+				9B568D8C2B5746FC002B3AAE /* FirebaseCrashlytics in Frameworks */,
 				9BAC504D2B435C16008A04D4 /* GoogleSignIn in Frameworks */,
 				9BAC504F2B435C16008A04D4 /* GoogleSignInSwift in Frameworks */,
 			);
@@ -165,6 +171,7 @@
 			children = (
 				9B4898E82B42650C00420A88 /* SignupViewModel.swift */,
 				9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */,
+				9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */,
 			);
 			path = LoginSignup;
 			sourceTree = "<group>";
@@ -304,6 +311,7 @@
 				9BE268B92B40FDE200DD41D5 /* Frameworks */,
 				9BE268BA2B40FDE200DD41D5 /* Resources */,
 				9B059C192B44C2E4000D1CA1 /* ShellScript */,
+				9B568D8D2B5749F0002B3AAE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -315,6 +323,8 @@
 				9B83930C2B43185E00DCC51F /* FirebaseAuth */,
 				9BAC504C2B435C16008A04D4 /* GoogleSignIn */,
 				9BAC504E2B435C16008A04D4 /* GoogleSignInSwift */,
+				9B568D8B2B5746FC002B3AAE /* FirebaseCrashlytics */,
+				9B568D902B574F40002B3AAE /* FirebaseAnalytics */,
 			);
 			productName = LithuanianLanguageLeague;
 			productReference = 9BE268BC2B40FDE200DD41D5 /* LithuanianLanguageLeague.app */;
@@ -450,6 +460,28 @@
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\n# SwiftFormat\nif which swiftformat > /dev/null; then\n  swiftformat . --swiftversion 5.9\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n\n\n# SwiftLint\nif which swiftlint > /dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		9B568D8D2B5749F0002B3AAE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(SRCROOT)/newInputFile",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -461,6 +493,7 @@
 				9B4898FC2B42650C00420A88 /* CustomTextField.swift in Sources */,
 				9B4898F72B42650C00420A88 /* SignupViewModel.swift in Sources */,
 				9B4898F82B42650C00420A88 /* LoginView.swift in Sources */,
+				9B10B0AB2B5723EB008705C3 /* AuthenticationViewModel.swift in Sources */,
 				9B4898F92B42650C00420A88 /* LoginSignupView.swift in Sources */,
 				9B4898FB2B42650C00420A88 /* CustomButton.swift in Sources */,
 				9B3A3A172B4F6833007F7989 /* GoogleAuthenticationService.swift in Sources */,
@@ -640,6 +673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "\"LithuanianLanguageLeague/Preview Content\"";
 				DEVELOPMENT_TEAM = 8G97XJ4TDL;
 				ENABLE_PREVIEWS = YES;
@@ -656,6 +690,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sezader.LithuanianLanguageLeague;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -687,6 +722,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sezader.LithuanianLanguageLeague;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -836,6 +872,14 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B4899052B42696F00420A88 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		9B568D8B2B5746FC002B3AAE /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseCrashlytics;
+		};
+		9B568D902B574F40002B3AAE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FirebaseAnalytics;
 		};
 		9B83930C2B43185E00DCC51F /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;

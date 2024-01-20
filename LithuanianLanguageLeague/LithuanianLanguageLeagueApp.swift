@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      [UIApplication.LaunchOptionsKey: Any]?) ->
         Bool {
         // Configure Firebase
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
         return true
     }

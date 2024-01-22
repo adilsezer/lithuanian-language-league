@@ -41,6 +41,8 @@
 		9BE268D12B40FDE400DD41D5 /* LithuanianLanguageLeagueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE268D02B40FDE400DD41D5 /* LithuanianLanguageLeagueTests.swift */; };
 		9BE268DB2B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE268DA2B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.swift */; };
 		9BE268DD2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE268DC2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift */; };
+		9BEE9D5E2B5F1EC600B72CAC /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */; };
+		9BEE9D602B5F2CB300B72CAC /* AuthenticationViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE9D5F2B5F2CB300B72CAC /* AuthenticationViewModelBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +95,8 @@
 		9BE268D62B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LithuanianLanguageLeagueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE268DA2B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LithuanianLanguageLeagueUITests.swift; sourceTree = "<group>"; };
 		9BE268DC2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LithuanianLeagueLaunchTests.swift; sourceTree = "<group>"; };
+		9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
+		9BEE9D5F2B5F2CB300B72CAC /* AuthenticationViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelBase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 				9B4898E82B42650C00420A88 /* SignupViewModel.swift */,
 				9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */,
 				9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */,
+				9BEE9D5F2B5F2CB300B72CAC /* AuthenticationViewModelBase.swift */,
 			);
 			path = LoginSignup;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 		9BE268BE2B40FDE200DD41D5 /* LithuanianLanguageLeague */ = {
 			isa = PBXGroup;
 			children = (
+				9BEE9D5C2B5F1EAF00B72CAC /* Enums */,
 				9BAC50502B435FEB008A04D4 /* Info.plist */,
 				9B8393092B42E7B000DCC51F /* Services */,
 				9B8393082B42DFDE00DCC51F /* Resources */,
@@ -298,6 +304,14 @@
 				9BE268DC2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift */,
 			);
 			path = LithuanianLanguageLeagueUITests;
+			sourceTree = "<group>";
+		};
+		9BEE9D5C2B5F1EAF00B72CAC /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,10 +516,12 @@
 				9B206B2E2B464170007F7943 /* Home.swift in Sources */,
 				9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */,
 				9B4898F52B42650C00420A88 /* NetworkManager.swift in Sources */,
+				9BEE9D5E2B5F1EC600B72CAC /* AuthenticationType.swift in Sources */,
 				9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */,
 				9B4898FD2B42650C00420A88 /* Extensions.swift in Sources */,
 				9B4898F62B42650C00420A88 /* CustomModifiers.swift in Sources */,
 				9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */,
+				9BEE9D602B5F2CB300B72CAC /* AuthenticationViewModelBase.swift in Sources */,
 				9BE268C22B40FDE200DD41D5 /* ContentView.swift in Sources */,
 				9B5222BC2B4DF6A600F50220 /* InputValidator.swift in Sources */,
 				9BE268C02B40FDE200DD41D5 /* LithuanianLanguageLeagueApp.swift in Sources */,

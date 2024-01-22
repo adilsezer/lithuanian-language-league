@@ -1,33 +1,11 @@
 import Foundation
 
-class LoginViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var successMessage: String?
-    @Published var errorMessage: String?
-    @Published var isAuthenticated: Bool = false
-
-    private let authService: AuthenticationService
-
-    init(authService: AuthenticationService = .shared) {
-        self.authService = authService
-    }
-
+class LoginViewModel: AuthenticationViewModelBase {
     func signIn() {
-        guard InputValidator.isValidEmail(email), InputValidator.isValidPassword(password) else {
-            errorMessage = "Invalid email or password"
-            return
-        }
+        guard validateCredentials() else { return }
 
         authService.signInWithEmail(email: email, password: password) { [weak self] result in
-            switch result {
-            case .success:
-                self?.isAuthenticated = true
-                self?.errorMessage = nil
-            case let .failure(error):
-                self?.isAuthenticated = false
-                self?.errorMessage = error.localizedDescription
-            }
+            self?.handleAuthenticationResult(result)
         }
     }
 
@@ -49,9 +27,5 @@ class LoginViewModel: ObservableObject {
                 self?.errorMessage = error.localizedDescription
             }
         }
-    }
-
-    func resetMessage() {
-        errorMessage = nil
     }
 }

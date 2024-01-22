@@ -5,7 +5,7 @@ struct LoginView: View {
 
     var body: some View {
         VStack {
-            CustomTextField(placeholder: "Email", text: $viewModel.email, iconName: "envelope")
+            CustomTextField(placeholder: "Email", text: $viewModel.email, iconName: "envelope", isSecure: false)
             CustomTextField(placeholder: "Password", text: $viewModel.password, iconName: "lock", isSecure: true)
             MessageView(message: viewModel.successMessage, messageType: .success)
             MessageView(message: viewModel.errorMessage, messageType: .error)
@@ -22,7 +22,7 @@ struct LoginView: View {
 
             CustomButton(title: "Login", action: viewModel.signIn)
             Text("Or").padding(10)
-            AuthButtton(title: "Sign in with Google", action: viewModel.googleSignIn, iconName: "GoogleLogo")
+            AuthButton(title: "Sign in with Google", action: viewModel.googleSignIn, iconName: "GoogleLogo")
         }
         .onAppear {
             viewModel.resetMessage()

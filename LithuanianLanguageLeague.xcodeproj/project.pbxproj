@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B052B5E2B5DFDD80037C6FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B052B5D2B5DFDD80037C6FF /* MessageView.swift */; };
 		9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B059C172B44A7C3000D1CA1 /* LoginError.swift */; };
 		9B10B0AB2B5723EB008705C3 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */; };
 		9B206B2E2B464170007F7943 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206B2D2B464170007F7943 /* Home.swift */; };
@@ -30,7 +31,6 @@
 		9B568D912B574F40002B3AAE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9B568D902B574F40002B3AAE /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Required, ); }; };
 		9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */; };
 		9B83930D2B43185E00DCC51F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9B83930C2B43185E00DCC51F /* FirebaseAuth */; };
-		9BAC504A2B434A0C008A04D4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC50492B434A0C008A04D4 /* MessageView.swift */; };
 		9BAC504D2B435C16008A04D4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504C2B435C16008A04D4 /* GoogleSignIn */; };
 		9BAC504F2B435C16008A04D4 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504E2B435C16008A04D4 /* GoogleSignInSwift */; };
 		9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC505A2B438122008A04D4 /* AuthButton.swift */; };
@@ -61,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B052B5D2B5DFDD80037C6FF /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		9B059C172B44A7C3000D1CA1 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		9B206B2D2B464170007F7943 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		9B5222BB2B4DF6A600F50220 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		9BAC50492B434A0C008A04D4 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		9BAC50502B435FEB008A04D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9BAC505A2B438122008A04D4 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		9BE268BC2B40FDE200DD41D5 /* LithuanianLanguageLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LithuanianLanguageLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,9 +199,9 @@
 		9B4898EE2B42650C00420A88 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9B052B5D2B5DFDD80037C6FF /* MessageView.swift */,
 				9B4898EF2B42650C00420A88 /* CustomButton.swift */,
 				9B4898F02B42650C00420A88 /* CustomTextField.swift */,
-				9BAC50492B434A0C008A04D4 /* MessageView.swift */,
 				9BAC505A2B438122008A04D4 /* AuthButton.swift */,
 			);
 			path = Components;
@@ -462,7 +462,8 @@
 		};
 		9B568D8D2B5749F0002B3AAE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -495,13 +496,13 @@
 				9B4898F82B42650C00420A88 /* LoginView.swift in Sources */,
 				9B10B0AB2B5723EB008705C3 /* AuthenticationViewModel.swift in Sources */,
 				9B4898F92B42650C00420A88 /* LoginSignupView.swift in Sources */,
+				9B052B5E2B5DFDD80037C6FF /* MessageView.swift in Sources */,
 				9B4898FB2B42650C00420A88 /* CustomButton.swift in Sources */,
 				9B3A3A172B4F6833007F7989 /* GoogleAuthenticationService.swift in Sources */,
 				9B206B2E2B464170007F7943 /* Home.swift in Sources */,
 				9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */,
 				9B4898F52B42650C00420A88 /* NetworkManager.swift in Sources */,
 				9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */,
-				9BAC504A2B434A0C008A04D4 /* MessageView.swift in Sources */,
 				9B4898FD2B42650C00420A88 /* Extensions.swift in Sources */,
 				9B4898F62B42650C00420A88 /* CustomModifiers.swift in Sources */,
 				9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */,

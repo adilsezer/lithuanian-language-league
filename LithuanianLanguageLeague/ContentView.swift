@@ -7,7 +7,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             if authViewModel.userLoggedIn {
-                HomeView()
+                DashboardView()
             } else {
                 LoginSignupView()
             }

@@ -7,6 +7,7 @@ class AuthenticationViewModelBase: ObservableObject {
     @Published var errorMessage: String?
     @Published var successMessage: String? // Add this line
     @Published var isLoading = false
+    @Published var selectedAuthType: AuthenticationType = .login // Added this line
 
     let authService: AuthenticationService
 

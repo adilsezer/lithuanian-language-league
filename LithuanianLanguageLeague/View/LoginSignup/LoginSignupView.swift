@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct LoginSignupView: View {
-    @State private var selectedAuthType = AuthenticationType.login
+    @ObservedObject var viewModel: LoginSignupViewModel
 
     var body: some View {
         NavigationView {
@@ -16,7 +16,7 @@ struct LoginSignupView: View {
     }
 
     private var authenticationTypePicker: some View {
-        Picker("Authentication", selection: $selectedAuthType) {
+        Picker("Authentication", selection: $viewModel.selectedAuthType) {
             Text("Login").tag(AuthenticationType.login)
             Text("Signup").tag(AuthenticationType.signup)
             // Add Picker items for other authentication methods here
@@ -27,11 +27,11 @@ struct LoginSignupView: View {
 
     @ViewBuilder
     private var selectedAuthenticationView: some View {
-        switch selectedAuthType {
+        switch viewModel.selectedAuthType {
         case .login:
-            LoginView(viewModel: LoginViewModel())
+            LoginView(viewModel: viewModel.loginViewModel)
         case .signup:
-            SignupView(viewModel: SignUpViewModel())
+            SignupView(viewModel: viewModel.signUpViewModel)
             // Cases for other authentication methods can be added here
         }
     }

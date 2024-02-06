@@ -9,7 +9,7 @@ struct ContentView: View {
             if authViewModel.userLoggedIn {
                 DashboardView()
             } else {
-                LoginSignupView()
+                LoginSignupView(viewModel: LoginSignupViewModel())
             }
         }
         .onAppear {

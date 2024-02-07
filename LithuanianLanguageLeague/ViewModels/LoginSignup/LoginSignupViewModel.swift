@@ -4,7 +4,6 @@ import Foundation
 class LoginSignupViewModel: ObservableObject {
     @Published var selectedAuthType: AuthenticationType = .login
 
-    // View models for each authentication type
     var loginViewModel: LoginViewModel
     var signUpViewModel: SignUpViewModel
 
@@ -14,5 +13,5 @@ class LoginSignupViewModel: ObservableObject {
         self.signUpViewModel = signUpViewModel
     }
 
-    // Add methods to handle business logic here
+    // Additional methods and logic can be added here if necessary
 }

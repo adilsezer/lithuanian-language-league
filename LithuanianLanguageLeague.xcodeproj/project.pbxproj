@@ -31,6 +31,8 @@
 		9B568D912B574F40002B3AAE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 9B568D902B574F40002B3AAE /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Required, ); }; };
 		9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */; };
 		9B83930D2B43185E00DCC51F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9B83930C2B43185E00DCC51F /* FirebaseAuth */; };
+		9B8925562B7308B200B05AD6 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8925552B7308B200B05AD6 /* AuthenticationState.swift */; };
+		9B8925582B73094E00B05AD6 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8925572B73094E00B05AD6 /* AuthenticationError.swift */; };
 		9BAC504D2B435C16008A04D4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504C2B435C16008A04D4 /* GoogleSignIn */; };
 		9BAC504F2B435C16008A04D4 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504E2B435C16008A04D4 /* GoogleSignInSwift */; };
 		9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC505A2B438122008A04D4 /* AuthButton.swift */; };
@@ -42,7 +44,6 @@
 		9BE268DB2B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE268DA2B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.swift */; };
 		9BE268DD2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE268DC2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift */; };
 		9BEE9D5E2B5F1EC600B72CAC /* AuthenticationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */; };
-		9BEE9D602B5F2CB300B72CAC /* AuthenticationViewModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE9D5F2B5F2CB300B72CAC /* AuthenticationViewModelBase.swift */; };
 		9BEE9D632B60534600B72CAC /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE9D622B60534600B72CAC /* DashboardViewModel.swift */; };
 		9BEE9D652B607B8C00B72CAC /* LoginSignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEE9D642B607B8C00B72CAC /* LoginSignupViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,8 @@
 		9B5222BB2B4DF6A600F50220 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		9B8925552B7308B200B05AD6 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		9B8925572B73094E00B05AD6 /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
 		9BAC50502B435FEB008A04D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9BAC505A2B438122008A04D4 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		9BE268BC2B40FDE200DD41D5 /* LithuanianLanguageLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LithuanianLanguageLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +101,6 @@
 		9BE268DA2B40FDE400DD41D5 /* LithuanianLanguageLeagueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LithuanianLanguageLeagueUITests.swift; sourceTree = "<group>"; };
 		9BE268DC2B40FDE400DD41D5 /* LithuanianLeagueLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LithuanianLeagueLaunchTests.swift; sourceTree = "<group>"; };
 		9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationType.swift; sourceTree = "<group>"; };
-		9BEE9D5F2B5F2CB300B72CAC /* AuthenticationViewModelBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelBase.swift; sourceTree = "<group>"; };
 		9BEE9D622B60534600B72CAC /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		9BEE9D642B607B8C00B72CAC /* LoginSignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,7 +183,6 @@
 				9B4898E82B42650C00420A88 /* SignupViewModel.swift */,
 				9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */,
 				9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */,
-				9BEE9D5F2B5F2CB300B72CAC /* AuthenticationViewModelBase.swift */,
 				9BEE9D642B607B8C00B72CAC /* LoginSignupViewModel.swift */,
 			);
 			path = LoginSignup;
@@ -316,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */,
+				9B8925552B7308B200B05AD6 /* AuthenticationState.swift */,
+				9B8925572B73094E00B05AD6 /* AuthenticationError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -527,9 +530,11 @@
 				9BEE9D652B607B8C00B72CAC /* LoginSignupViewModel.swift in Sources */,
 				9B4898F92B42650C00420A88 /* LoginSignupView.swift in Sources */,
 				9B052B5E2B5DFDD80037C6FF /* MessageView.swift in Sources */,
+				9B8925562B7308B200B05AD6 /* AuthenticationState.swift in Sources */,
 				9B4898FB2B42650C00420A88 /* CustomButton.swift in Sources */,
 				9B3A3A172B4F6833007F7989 /* GoogleAuthenticationService.swift in Sources */,
 				9B206B2E2B464170007F7943 /* DashboardView.swift in Sources */,
+				9B8925582B73094E00B05AD6 /* AuthenticationError.swift in Sources */,
 				9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */,
 				9B4898F52B42650C00420A88 /* NetworkManager.swift in Sources */,
 				9BEE9D5E2B5F1EC600B72CAC /* AuthenticationType.swift in Sources */,
@@ -537,7 +542,6 @@
 				9B4898FD2B42650C00420A88 /* Extensions.swift in Sources */,
 				9B4898F62B42650C00420A88 /* CustomModifiers.swift in Sources */,
 				9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */,
-				9BEE9D602B5F2CB300B72CAC /* AuthenticationViewModelBase.swift in Sources */,
 				9BE268C22B40FDE200DD41D5 /* ContentView.swift in Sources */,
 				9B5222BC2B4DF6A600F50220 /* InputValidator.swift in Sources */,
 				9BE268C02B40FDE200DD41D5 /* LithuanianLanguageLeagueApp.swift in Sources */,

@@ -41,17 +41,10 @@ class SignUpViewModel: ObservableObject {
         }
     }
 
-    private func resetMessages() {
-        errorMessage = nil
-        successMessage = nil
-    }
-
-    // Assuming processError method accepts AuthenticationError type
     private func processError(_ error: AuthenticationError) -> String {
-        switch error {
-        case let .customError(message):
+        if case let .customError(message) = error {
             message
-        default:
+        } else {
             error.localizedDescription
         }
     }

@@ -94,12 +94,10 @@ class LoginViewModel: ObservableObject {
         successMessage = nil
     }
 
-    // Helper method to process and return a user-friendly error message
     private func processError(_ error: AuthenticationError) -> String {
-        switch error {
-        case let .customError(message):
+        if case let .customError(message) = error {
             message
-        default:
+        } else {
             error.localizedDescription
         }
     }

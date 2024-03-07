@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct AuthButtton: View {
+struct AuthButton: View {
     var title: String
     var action: () -> Void
     var iconName: String? // Optional SF Symbol name

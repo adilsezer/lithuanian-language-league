@@ -2,26 +2,19 @@ import Firebase
 import SwiftUI
 
 struct ContentView: View {
-    @State private var userLoggedIn = (Auth.auth().currentUser != nil)
-    @EnvironmentObject var userData: UserData
+    @StateObject var viewModel: ContentViewViewModel // Assume initialised correctly
 
     var body: some View {
         VStack {
-            if userLoggedIn {
-                HomeView()
+            if viewModel.shouldShowDashboard {
+                DashboardView() // Assuming DashboardView is correctly handling UserData
             } else {
-                LoginSignupView()
+                LoginSignupView(viewModel: LoginSignupViewModel())
             }
         }
-        .onAppear {
-            Auth.auth().addStateDidChangeListener(authStateChanged)
-        }
     }
+}
 
-    // New function to handle the authentication state change
-    private func authStateChanged(auth _: Auth, user: User?) {
-        DispatchQueue.main.async { // Ensure update is on the main thread
-            userLoggedIn = (user != nil)
-        }
-    }
+#Preview {
+    ContentView(viewModel: ContentViewViewModel(userData: UserData()))
 }

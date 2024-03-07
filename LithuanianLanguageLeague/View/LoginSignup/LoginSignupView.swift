@@ -1,19 +1,13 @@
 import SwiftUI
 
 struct LoginSignupView: View {
-    @StateObject var loginViewModel = LoginViewModel()
-    @StateObject var signUpViewModel = SignUpViewModel()
-    @State private var isShowingLogin = true // Toggle between Login and Signup
+    @ObservedObject var viewModel: LoginSignupViewModel
 
     var body: some View {
         NavigationView {
             VStack {
-                optionsPicker
-                if isShowingLogin {
-                    LoginView(viewModel: loginViewModel)
-                } else {
-                    SignupView(viewModel: signUpViewModel)
-                }
+                authenticationTypePicker
+                selectedAuthenticationView
                 Spacer()
             }
             .navigationBarTitle("Welcome", displayMode: .inline)
@@ -21,12 +15,24 @@ struct LoginSignupView: View {
         }
     }
 
-    private var optionsPicker: some View {
-        Picker("Options", selection: $isShowingLogin) {
-            Text("Login").tag(true)
-            Text("Signup").tag(false)
+    private var authenticationTypePicker: some View {
+        Picker("Authentication", selection: $viewModel.selectedAuthType) {
+            Text("Login").tag(AuthenticationType.login)
+            Text("Signup").tag(AuthenticationType.signup)
+            // Add Picker items for other authentication methods here
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding()
+    }
+
+    @ViewBuilder
+    private var selectedAuthenticationView: some View {
+        switch viewModel.selectedAuthType {
+        case .login:
+            LoginView(viewModel: viewModel.loginViewModel)
+        case .signup:
+            SignupView(viewModel: viewModel.signUpViewModel)
+            // Cases for other authentication methods can be added here
+        }
     }
 }

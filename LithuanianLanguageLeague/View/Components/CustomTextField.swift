@@ -11,7 +11,7 @@ struct CustomTextField: View {
     var placeholder: String
     @Binding var text: String
     var iconName: String? // Optional SF Symbol name
-    var isSecure: Bool = false
+    var isSecure: Bool // No default value, must be specified
 
     var body: some View {
         HStack {
@@ -27,8 +27,12 @@ struct CustomTextField: View {
             }
             if isSecure {
                 SecureField(placeholder, text: $text)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
             } else {
                 TextField(placeholder, text: $text)
+                    .autocapitalization(.none)
+                    .disableAutocorrection(true)
             }
         }
         .padding()

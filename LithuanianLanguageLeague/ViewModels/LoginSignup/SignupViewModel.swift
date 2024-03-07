@@ -1,24 +1,19 @@
-import FirebaseAuth // Required for User type
-import FirebaseCore
+import FirebaseAuth
 import Foundation
-import UIKit
-
-// This ViewModel should act as an intermediary between the views and the AuthService.
-// It should not directly perform authentication tasks but should call AuthService to do so.
-
-// Responsibilities: Preparing data for the views, handling user inputs, and calling AuthService for authentication.
+import SwiftUI
 
 class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
-    @Published var successMessage: String?
     @Published var errorMessage: String?
-    @Published var isAuthenticated: Bool = false
+    @Published var isLoading = false
+    @Published var successMessage: String?
 
-    private let authService: AuthenticationService
+    var authService: AuthenticationService = .shared
+    var userData: UserData
 
-    init(authService: AuthenticationService = .shared) {
-        self.authService = authService
+    init(userData: UserData) {
+        self.userData = userData
     }
 
     func signUp() {
@@ -27,19 +22,30 @@ class SignUpViewModel: ObservableObject {
             return
         }
 
+        isLoading = true
+        userData.authenticationState = .loading
         authService.signUpWithEmail(email: email, password: password) { [weak self] result in
-            switch result {
-            case .success:
-                self?.isAuthenticated = true
-                self?.errorMessage = nil
-            case let .failure(error):
-                self?.isAuthenticated = false
-                self?.errorMessage = error.localizedDescription
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                switch result {
+                case let .success(user):
+                    self?.userData.updateUser(withFirebaseUser: user)
+                    self?.userData.authenticationState = .success
+                    self?.errorMessage = nil
+                    self?.successMessage = "Signup successful"
+                case let .failure(error):
+                    self?.userData.authenticationState = .failed(error)
+                    self?.errorMessage = self?.processError(error)
+                }
             }
         }
     }
 
-    func resetMessage() {
-        errorMessage = nil
+    private func processError(_ error: AuthenticationError) -> String {
+        if case let .customError(message) = error {
+            message
+        } else {
+            error.localizedDescription
+        }
     }
 }

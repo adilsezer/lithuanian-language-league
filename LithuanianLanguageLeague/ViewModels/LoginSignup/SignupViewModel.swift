@@ -1,47 +1,58 @@
 import FirebaseAuth
 import Foundation
+import SwiftUI
 
 class SignUpViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var errorMessage: String?
-    @Published var successMessage: String?
     @Published var isLoading = false
+    @Published var successMessage: String?
+
     var authService: AuthenticationService = .shared
+    var userData: UserData
+
+    init(userData: UserData) {
+        self.userData = userData
+    }
 
     func signUp() {
-        guard validateCredentials() else { return }
+        guard InputValidator.isValidEmail(email), InputValidator.isValidPassword(password) else {
+            errorMessage = "Invalid email or password"
+            return
+        }
 
         isLoading = true
+        userData.authenticationState = .loading
         authService.signUpWithEmail(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
-                self?.handleAuthenticationResult(result)
+                switch result {
+                case let .success(user):
+                    self?.userData.updateUser(withFirebaseUser: user)
+                    self?.userData.authenticationState = .success
+                    self?.errorMessage = nil
+                    self?.successMessage = "Signup successful"
+                case let .failure(error):
+                    self?.userData.authenticationState = .failed(error)
+                    self?.errorMessage = self?.processError(error)
+                }
             }
         }
     }
 
-    private func validateCredentials() -> Bool {
-        guard InputValidator.isValidEmail(email), InputValidator.isValidPassword(password) else {
-            errorMessage = "Invalid email or password"
-            return false
-        }
-        return true
-    }
-
-    private func handleAuthenticationResult(_ result: Result<User, Error>) {
-        switch result {
-        case .success:
-            successMessage = "Signup successful"
-            errorMessage = nil
-        case let .failure(error):
-            errorMessage = error.localizedDescription
-            successMessage = nil
-        }
-    }
-
-    func resetMessage() {
+    private func resetMessages() {
         errorMessage = nil
         successMessage = nil
+    }
+
+    // Assuming processError method accepts AuthenticationError type
+    private func processError(_ error: AuthenticationError) -> String {
+        switch error {
+        case let .customError(message):
+            message
+        default:
+            error.localizedDescription
+        }
     }
 }

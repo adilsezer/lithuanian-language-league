@@ -20,7 +20,6 @@ struct SignupView: View {
                 .disabled(viewModel.isLoading)
             CustomTextField(placeholder: "Password", text: $viewModel.password, iconName: "lock", isSecure: true)
                 .disabled(viewModel.isLoading)
-            MessageView(message: viewModel.successMessage, messageType: .success)
             MessageView(message: viewModel.errorMessage, messageType: .error)
             CustomButton(title: "Signup", action: viewModel.signUp)
                 .disabled(viewModel.isLoading)
@@ -29,5 +28,5 @@ struct SignupView: View {
 }
 
 #Preview {
-    SignupView(viewModel: SignUpViewModel())
+    SignupView(viewModel: SignUpViewModel(userData: UserData()))
 }

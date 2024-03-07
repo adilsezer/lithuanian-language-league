@@ -7,8 +7,8 @@ class LoginSignupViewModel: ObservableObject {
     var loginViewModel: LoginViewModel
     var signUpViewModel: SignUpViewModel
 
-    init(loginViewModel: LoginViewModel = LoginViewModel(),
-         signUpViewModel: SignUpViewModel = SignUpViewModel()) {
+    init(loginViewModel: LoginViewModel = LoginViewModel(userData: UserData()),
+         signUpViewModel: SignUpViewModel = SignUpViewModel(userData: UserData())) {
         self.loginViewModel = loginViewModel
         self.signUpViewModel = signUpViewModel
     }

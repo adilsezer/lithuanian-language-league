@@ -1,5 +1,6 @@
 import FirebaseAuth
 import Foundation
+import SwiftUI
 
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
@@ -7,23 +8,56 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var successMessage: String?
     @Published var isLoading = false
+
     var authService: AuthenticationService = .shared
+    var userData: UserData
+
+    init(userData: UserData) {
+        self.userData = userData
+    }
 
     func signIn() {
         guard validateCredentials() else { return }
 
         isLoading = true
+        userData.authenticationState = .loading
         authService.signInWithEmail(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 self?.isLoading = false
-                self?.handleAuthenticationResult(result)
+                switch result {
+                case let .success(user):
+                    self?.userData.updateUser(withFirebaseUser: user)
+                    self?.userData.authenticationState = .success
+                    self?.successMessage = "Successfully signed in"
+                    self?.errorMessage = nil
+                case let .failure(error):
+                    self?.userData.authenticationState = .failed(error)
+                    self?.errorMessage = self?.processError(error)
+                    self?.successMessage = nil
+                }
             }
         }
     }
 
     func googleSignIn() {
-        // Implement Google sign-in logic here
-        authService.signInWithGoogle() // Adjust according to your service's method signature
+        isLoading = true
+        userData.authenticationState = .loading
+        authService.signInWithGoogle { [weak self] result in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                switch result {
+                case let .success(user):
+                    self?.userData.updateUser(withFirebaseUser: user)
+                    self?.userData.authenticationState = .success
+                    self?.successMessage = "Successfully signed in with Google"
+                    self?.errorMessage = nil
+                case let .failure(error):
+                    self?.userData.authenticationState = .failed(error)
+                    self?.errorMessage = self?.processError(error)
+                    self?.successMessage = nil
+                }
+            }
+        }
     }
 
     func forgotPassword() {
@@ -31,14 +65,16 @@ class LoginViewModel: ObservableObject {
             errorMessage = "Invalid email"
             return
         }
+        isLoading = true
         authService.forgotPassword(email: email) { [weak self] result in
             DispatchQueue.main.async {
+                self?.isLoading = false
                 switch result {
                 case .success:
                     self?.successMessage = "Password reset link sent."
                     self?.errorMessage = nil
                 case let .failure(error):
-                    self?.errorMessage = error.localizedDescription
+                    self?.errorMessage = self?.processError(error)
                     self?.successMessage = nil
                 }
             }
@@ -53,19 +89,18 @@ class LoginViewModel: ObservableObject {
         return true
     }
 
-    private func handleAuthenticationResult(_ result: Result<User, Error>) {
-        switch result {
-        case .success:
-            successMessage = "Sign-in successful"
-            errorMessage = nil
-        case let .failure(error):
-            errorMessage = error.localizedDescription
-            successMessage = nil
-        }
-    }
-
     func resetMessage() {
         errorMessage = nil
         successMessage = nil
+    }
+
+    // Helper method to process and return a user-friendly error message
+    private func processError(_ error: AuthenticationError) -> String {
+        switch error {
+        case let .customError(message):
+            message
+        default:
+            error.localizedDescription
+        }
     }
 }

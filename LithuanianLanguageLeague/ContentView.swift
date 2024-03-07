@@ -2,22 +2,19 @@ import Firebase
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject private var authViewModel = AuthenticationViewModel()
+    @StateObject var viewModel: ContentViewViewModel // Assume initialised correctly
 
     var body: some View {
         VStack {
-            if authViewModel.userLoggedIn {
-                DashboardView()
+            if viewModel.shouldShowDashboard {
+                DashboardView() // Assuming DashboardView is correctly handling UserData
             } else {
                 LoginSignupView(viewModel: LoginSignupViewModel())
             }
-        }
-        .onAppear {
-            authViewModel.subscribeToAuthenticationChanges()
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(viewModel: ContentViewViewModel(userData: UserData()))
 }

@@ -12,7 +12,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      [UIApplication.LaunchOptionsKey: Any]?) ->
         Bool {
         // Configure Firebase
-        FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
         return true
     }
@@ -26,15 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // Define your SwiftUI App
 @main
 struct LithuanianLanguageLeagueApp: App {
-    var userData = UserData()
-
     // Use the custom AppDelegate
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(userData)
+            ContentView(viewModel: ContentViewViewModel(userData: UserData()))
+                .environmentObject(UserData())
         }
     }
 }

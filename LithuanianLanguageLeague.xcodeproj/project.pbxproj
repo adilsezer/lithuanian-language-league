@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9B052B5E2B5DFDD80037C6FF /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B052B5D2B5DFDD80037C6FF /* MessageView.swift */; };
 		9B059C182B44A7C3000D1CA1 /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B059C172B44A7C3000D1CA1 /* LoginError.swift */; };
-		9B10B0AB2B5723EB008705C3 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */; };
 		9B206B2E2B464170007F7943 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B206B2D2B464170007F7943 /* DashboardView.swift */; };
 		9B3A3A172B4F6833007F7989 /* GoogleAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A3A162B4F6833007F7989 /* GoogleAuthenticationService.swift */; };
 		9B3A3A192B4F6A40007F7989 /* FirebaseAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3A3A182B4F6A40007F7989 /* FirebaseAuthenticationService.swift */; };
@@ -33,6 +32,8 @@
 		9B83930D2B43185E00DCC51F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 9B83930C2B43185E00DCC51F /* FirebaseAuth */; };
 		9B8925562B7308B200B05AD6 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8925552B7308B200B05AD6 /* AuthenticationState.swift */; };
 		9B8925582B73094E00B05AD6 /* AuthenticationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8925572B73094E00B05AD6 /* AuthenticationError.swift */; };
+		9B9DD5102B99320700ABD9CC /* UserRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9DD50F2B99320700ABD9CC /* UserRole.swift */; };
+		9B9FB9FB2B94001600315895 /* ContentViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9FB9FA2B94001600315895 /* ContentViewViewModel.swift */; };
 		9BAC504D2B435C16008A04D4 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504C2B435C16008A04D4 /* GoogleSignIn */; };
 		9BAC504F2B435C16008A04D4 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9BAC504E2B435C16008A04D4 /* GoogleSignInSwift */; };
 		9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAC505A2B438122008A04D4 /* AuthButton.swift */; };
@@ -68,7 +69,6 @@
 /* Begin PBXFileReference section */
 		9B052B5D2B5DFDD80037C6FF /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		9B059C172B44A7C3000D1CA1 /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
-		9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		9B206B2D2B464170007F7943 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		9B3A3A162B4F6833007F7989 /* GoogleAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticationService.swift; sourceTree = "<group>"; };
 		9B3A3A182B4F6A40007F7989 /* FirebaseAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthenticationService.swift; sourceTree = "<group>"; };
@@ -88,6 +88,8 @@
 		9B83930A2B42E7DE00DCC51F /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		9B8925552B7308B200B05AD6 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
 		9B8925572B73094E00B05AD6 /* AuthenticationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationError.swift; sourceTree = "<group>"; };
+		9B9DD50F2B99320700ABD9CC /* UserRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRole.swift; sourceTree = "<group>"; };
+		9B9FB9FA2B94001600315895 /* ContentViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewViewModel.swift; sourceTree = "<group>"; };
 		9BAC50502B435FEB008A04D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9BAC505A2B438122008A04D4 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		9BE268BC2B40FDE200DD41D5 /* LithuanianLanguageLeague.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LithuanianLanguageLeague.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +173,7 @@
 		9B4898E62B42650C00420A88 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9B9FB9F92B94000800315895 /* ViewModel */,
 				9BEE9D612B60533300B72CAC /* Home */,
 				9B4898E72B42650C00420A88 /* LoginSignup */,
 			);
@@ -182,7 +185,6 @@
 			children = (
 				9B4898E82B42650C00420A88 /* SignupViewModel.swift */,
 				9B5222BE2B4E1FE500F50220 /* LoginViewModel.swift */,
-				9B10B0AA2B5723EB008705C3 /* AuthenticationViewModel.swift */,
 				9BEE9D642B607B8C00B72CAC /* LoginSignupViewModel.swift */,
 			);
 			path = LoginSignup;
@@ -244,6 +246,14 @@
 				9B3A3A182B4F6A40007F7989 /* FirebaseAuthenticationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9B9FB9F92B94000800315895 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9B9FB9FA2B94001600315895 /* ContentViewViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9BE268B32B40FDE200DD41D5 = {
@@ -319,6 +329,7 @@
 				9BEE9D5D2B5F1EC600B72CAC /* AuthenticationType.swift */,
 				9B8925552B7308B200B05AD6 /* AuthenticationState.swift */,
 				9B8925572B73094E00B05AD6 /* AuthenticationError.swift */,
+				9B9DD50F2B99320700ABD9CC /* UserRole.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -526,13 +537,13 @@
 				9B4898F72B42650C00420A88 /* SignupViewModel.swift in Sources */,
 				9BEE9D632B60534600B72CAC /* DashboardViewModel.swift in Sources */,
 				9B4898F82B42650C00420A88 /* LoginView.swift in Sources */,
-				9B10B0AB2B5723EB008705C3 /* AuthenticationViewModel.swift in Sources */,
 				9BEE9D652B607B8C00B72CAC /* LoginSignupViewModel.swift in Sources */,
 				9B4898F92B42650C00420A88 /* LoginSignupView.swift in Sources */,
 				9B052B5E2B5DFDD80037C6FF /* MessageView.swift in Sources */,
 				9B8925562B7308B200B05AD6 /* AuthenticationState.swift in Sources */,
 				9B4898FB2B42650C00420A88 /* CustomButton.swift in Sources */,
 				9B3A3A172B4F6833007F7989 /* GoogleAuthenticationService.swift in Sources */,
+				9B9FB9FB2B94001600315895 /* ContentViewViewModel.swift in Sources */,
 				9B206B2E2B464170007F7943 /* DashboardView.swift in Sources */,
 				9B8925582B73094E00B05AD6 /* AuthenticationError.swift in Sources */,
 				9B83930B2B42E7DE00DCC51F /* AuthenticationService.swift in Sources */,
@@ -543,6 +554,7 @@
 				9B4898F62B42650C00420A88 /* CustomModifiers.swift in Sources */,
 				9BAC505B2B438122008A04D4 /* AuthButton.swift in Sources */,
 				9BE268C22B40FDE200DD41D5 /* ContentView.swift in Sources */,
+				9B9DD5102B99320700ABD9CC /* UserRole.swift in Sources */,
 				9B5222BC2B4DF6A600F50220 /* InputValidator.swift in Sources */,
 				9BE268C02B40FDE200DD41D5 /* LithuanianLanguageLeagueApp.swift in Sources */,
 				9B5222BF2B4E1FE500F50220 /* LoginViewModel.swift in Sources */,

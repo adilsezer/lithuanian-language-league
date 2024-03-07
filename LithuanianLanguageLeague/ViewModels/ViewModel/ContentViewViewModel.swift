@@ -12,12 +12,11 @@ class ContentViewViewModel: ObservableObject {
     private func observeUserLoginStatus() {
         // Observe changes to authenticationState and update shouldShowDashboard
         userData.$authenticationState
-            .map { state in
-                switch state {
-                case .success:
-                    true
-                default:
-                    false
+            .map { state -> Bool in
+                if case .success = state {
+                    return true
+                } else {
+                    return false
                 }
             }
             .assign(to: \.shouldShowDashboard, on: self)
